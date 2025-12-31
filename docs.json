@@ -1,0 +1,22 @@
+[
+  {
+    "activo": true,
+    "categoria": "CNB",
+    "titulo": "REPROGRAMAR LLAMADAS CNB",
+    "link_drive": "https://drive.google.com/file/d/XXXX/view",
+    "ubicacion": "Directorio: LINKS / Fila 9 / Columna G",
+    "descripcion": "Guía para reprogramar llamadas CNB y validar datos.",
+    "tags": ["cnb", "reprogramar", "reagendar", "llamada", "agenda", "cita"],
+    "texto_lectura": "Para reprogramar su llamada, necesito confirmar sus datos y proponerle una nueva fecha y horario."
+  },
+  {
+    "activo": true,
+    "categoria": "PROCEDIMIENTOS",
+    "titulo": "CANCELACIÓN DE SERVICIO - PROCEDIMIENTO",
+    "link_drive": "https://drive.google.com/file/d/YYYY/view",
+    "ubicacion": "Directorio: PROCEDIMIENTOS / Fila 21 / Columna D",
+    "descripcion": "Pasos para cancelar el servicio y requisitos mínimos.",
+    "tags": ["cancelacion", "cancelar", "baja", "servicio", "requisitos"],
+    "texto_lectura": ""
+  }
+]

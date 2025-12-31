@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buscador de Documentos</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <div class="wrap">
+    <!-- Header profesional -->
+    <header class="topbar card">
+      <div class="brand">
+        <!-- Tú cambias la imagen: pon tu archivo en la misma carpeta, por ejemplo logo.png -->
+        <img class="brand-logo" src="./logo.png" alt="Logo de la dependencia" />
+        <div class="brand-text">
+          <h1>Buscador de Documentos</h1>
+          <p>Encuentra rápido el material correcto por tema o categoría. (Catálogo local: docs.json)</p>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="pill" id="pill">⏳ Cargando catálogo…</div>
+      </div>
+    </header>
+
+    <!-- Controles -->
+    <section class="card panel">
+      <div class="controls">
+        <div class="field">
+          <label for="q">Búsqueda</label>
+          <input id="q" type="text" placeholder="Ej: reprogramar CNB, cancelación, requisitos, validación..." autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="category">Categoría</label>
+          <select id="category">
+            <option value="__all__" selected>Todas</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="mode">Modo</label>
+          <select id="mode">
+            <option value="smart" selected>Inteligente</option>
+            <option value="exact">Frase exacta</option>
+          </select>
+        </div>
+
+        <div class="actions-row">
+          <button class="primary" id="reload" title="Recargar docs.json">Recargar</button>
+          <button class="ghost" id="clear" title="Limpiar búsqueda">Limpiar</button>
+        </div>
+      </div>
+
+      <div class="status" id="status"></div>
+
+      <div class="hint-row">
+        <div class="hint">
+          Tip: usa tags y sinónimos para mejorar resultados. También puedes filtrar por categoría.
+        </div>
+      </div>
+
+      <div class="tagsbar" id="tagsbar"></div>
+    </section>
+
+    <!-- Resultados -->
+    <main class="results" id="results"></main>
+
+    <footer class="footer">
+      <span>Privacidad: el buscador funciona con <b>docs.json</b> local (sin Sheets).</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
