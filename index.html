@@ -3,76 +3,80 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Buscador de Documentos</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Sistema de Evaluación | Línea 079</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div class="page-bg"></div>
+  <div class="bg"></div>
 
-  <div class="wrap">
-    <!-- Header profesional -->
-    <header class="topbar card">
-      <div class="brand">
-        <!-- Tú cambias la imagen: pon tu archivo en la misma carpeta, por ejemplo logo.png -->
-        <img class="brand-logo" src="./logo.png" alt="Logo de la dependencia" />
-        <div class="brand-text">
-          <h1>Buscador de Documentos</h1>
-          <p>Encuentra rápido el material correcto por tema o categoría. (Catálogo local: docs.json)</p>
-        </div>
-      </div>
-
-      <div class="topbar-right">
-        <div class="pill" id="pill">⏳ Cargando catálogo…</div>
-      </div>
+  <main class="container">
+    <header class="card header">
+      <h1>Sistema de Evaluación de Aspirantes</h1>
+      <p>Proceso por secciones con control de avance y reporte a Telegram.</p>
     </header>
 
-    <!-- Controles -->
-    <section class="card panel">
-      <div class="controls">
-        <div class="field">
-          <label for="q">Búsqueda</label>
-          <input id="q" type="text" placeholder="Ej: reprogramar CNB, cancelación, requisitos, validación..." autocomplete="off" />
-        </div>
-
-        <div class="field">
-          <label for="category">Categoría</label>
-          <select id="category">
-            <option value="__all__" selected>Todas</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="mode">Modo</label>
-          <select id="mode">
-            <option value="smart" selected>Inteligente</option>
-            <option value="exact">Frase exacta</option>
-          </select>
-        </div>
-
-        <div class="actions-row">
-          <button class="primary" id="reload" title="Recargar docs.json">Recargar</button>
-          <button class="ghost" id="clear" title="Limpiar búsqueda">Limpiar</button>
-        </div>
-      </div>
-
-      <div class="status" id="status"></div>
-
-      <div class="hint-row">
-        <div class="hint">
-          Tip: usa tags y sinónimos para mejorar resultados. También puedes filtrar por categoría.
-        </div>
-      </div>
-
-      <div class="tagsbar" id="tagsbar"></div>
+    <section class="card" id="loginSection">
+      <h2>Inicio de sesión</h2>
+      <form id="loginForm" class="grid-form">
+        <label>
+          Usuario
+          <input type="text" id="loginUser" autocomplete="username" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="loginPass" autocomplete="current-password" required />
+        </label>
+        <button type="submit" class="btn primary">Ingresar</button>
+      </form>
+      <p class="muted">Credenciales configuradas para esta versión.</p>
+      <p id="loginMsg" class="msg"></p>
     </section>
 
-    <!-- Resultados -->
-    <main class="results" id="results"></main>
+    <section class="card hidden" id="candidateSection">
+      <div class="section-head">
+        <h2>Datos del aspirante</h2>
+        <button id="logoutTop" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+      <form id="candidateForm" class="grid-form">
+        <label>
+          Nombre completo (MAYÚSCULAS)
+          <input type="text" id="fullName" required />
+        </label>
+        <label>
+          Título y cédula
+          <input type="text" id="titleId" required />
+        </label>
+        <label>
+          Universidad
+          <input type="text" id="university" required />
+        </label>
+        <button class="btn primary" type="submit">Guardar e iniciar examen</button>
+      </form>
+      <p id="candidateMsg" class="msg"></p>
+    </section>
 
-    <footer class="footer">
-      <span>Privacidad: el buscador funciona con <b>docs.json</b> local (sin Sheets).</span>
-    </footer>
-  </div>
+    <section class="card hidden" id="examSection">
+      <div class="section-head">
+        <h2 id="examTitle">Examen</h2>
+        <button id="logoutExam" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+
+      <div class="progress" id="progressText"></div>
+      <div id="examBody"></div>
+      <p id="examMsg" class="msg"></p>
+    </section>
+
+    <section class="card hidden" id="resultSection">
+      <h2>Resultado</h2>
+      <div id="resultBox"></div>
+      <div class="actions">
+        <button id="sendBtn" class="btn primary" type="button">Enviar reporte al grupo</button>
+        <button id="newCandidateBtn" class="btn" type="button">Evaluar nuevo aspirante</button>
+        <button id="logoutBottom" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+      <p id="sendMsg" class="msg"></p>
+    </section>
+  </main>
 
   <script src="./app.js"></script>
 </body>
